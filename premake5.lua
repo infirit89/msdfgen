@@ -28,7 +28,7 @@ project "msdfgen"
     {
         "include",
         "core",
-        "ext"
+        "ext",
         "%{wks.location}/TerranEngine/vendor/freetype/include/"        
     }
 
