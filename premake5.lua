@@ -27,7 +27,13 @@ project "msdfgen"
 
     includedirs 
     {
-        "include/**.h"        
+        "include/**.h",
+        "%{wks.location}/TerranEngine/vendor/freetype/include/"        
+    }
+
+    links 
+    {
+        "Freetype"
     }
 
     defines  
