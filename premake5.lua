@@ -11,7 +11,7 @@ project "msdfgen"
     {
         -- msdf core
         "core/**.cpp",
-        "core/**.hpp"
+        "core/**.hpp",
         "core/**.h",
 
         -- msdf extensions
