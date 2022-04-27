@@ -7,7 +7,6 @@ project "msdfgen"
     targetdir ("%{prj.location}/bin/" .. outputdir)
     objdir ("%{prj.location}/bin-int/" .. outputdir)
 
-
     files 
     {
         -- msdf core
@@ -27,7 +26,9 @@ project "msdfgen"
 
     includedirs 
     {
-        "include/**.h",
+        "include",
+        "core",
+        "ext"
         "%{wks.location}/TerranEngine/vendor/freetype/include/"        
     }
 
@@ -51,6 +52,3 @@ project "msdfgen"
     filter "configurations:Release"
         runtime "Release"
         optimize "on"
-
-
-
