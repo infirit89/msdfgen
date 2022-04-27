@@ -19,9 +19,6 @@ project "msdfgen"
         "ext/**.h",
 
         "lib/**.cpp",
-
-        "msdfgen.cpp",
-        "msdfgen-ext.cpp"
     }
 
     includedirs 
