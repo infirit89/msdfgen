@@ -1,3 +1,5 @@
+include "Freetype"
+
 project "msdfgen"
     kind "StaticLib"
     language "C++"
@@ -26,7 +28,7 @@ project "msdfgen"
         "include",
         "core",
         "ext",
-        "%{wks.location}/TerranEngine/vendor/freetype/include/"        
+        "freetype/include/"        
     }
 
     links 
