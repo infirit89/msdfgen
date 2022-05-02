@@ -38,8 +38,7 @@ project "msdfgen"
 
     defines  
     {
-        "MSDFGEN_USE_CPP11",
-        "_CRT_SECURE_NO_WARNINGS"
+        "MSDFGEN_USE_CPP11"
     }
 
     filter "system:windows"
