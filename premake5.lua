@@ -41,6 +41,12 @@ project "msdfgen"
         "MSDFGEN_USE_CPP11"
     }
 
+    disablewarnings 
+    {
+        4005,
+        4267
+    }
+
     filter "system:windows"
     systemversion "latest"
 
