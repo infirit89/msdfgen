@@ -20,6 +20,8 @@
 *.suo
 *.VC.opendb
 *.VC.db
+*.vcxproj
+*.vcxproj.filters
 /bin/*.lib
 /bin/msdfgen
 output.png
@@ -31,3 +33,4 @@ out/
 /cmake-gen.bat
 /line-ending-check.bat
 bin/
+bin-int/
