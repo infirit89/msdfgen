@@ -28,3 +28,4 @@ skia/win32/
 skia/win64/
 /cmake-gen.bat
 /line-ending-check.bat
+bin/
