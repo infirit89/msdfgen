@@ -1,4 +1,4 @@
-include "Freetype"
+include "freetype"
 
 project "msdfgen"
     kind "StaticLib"
