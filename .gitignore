@@ -1,3 +1,4 @@
+/build/
 /Debug/
 /Release/
 /Release OpenMP/
@@ -7,6 +8,8 @@
 /x86/
 /x64/
 .vs/
+.vscode/
+.DS_Store
 *.exe
 *.zip
 *.user
@@ -23,11 +26,10 @@
 /bin/msdfgen
 output.png
 render.png
+CMakeUserPresets.json
 out/
-build/
-build_xcode/
-skia/win32/
-skia/win64/
+/all-in-one/
+/build_xcode/
 /cmake-gen.bat
 /line-ending-check.bat
 bin/

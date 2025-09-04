@@ -1,4 +1,62 @@
 
+### Version 1.12.1 (2025-05-31)
+
+- Fixed a bug applying error correction incorrectly if shape's Y-axis is inverted (mainly affected SVG input)
+- Fixed error correction not being applied in the standalone executable in MTSDF mode with the `-scanline` option (default in non-Skia builds)
+- Minor CMake adjustments and warning fixes
+
+## Version 1.12 (2024-05-18)
+
+- Added the possibility to specify asymmetrical distance range (`-arange`, `-apxrange`)
+- Added the ability to export the shape into an SVG file (`-exportsvg`)
+- Edge coloring no longer colors smooth contours white, which has been found suboptimal
+- Fixed incorrect scaling of font glyph coordinates. To preserve backwards compatibility, the user has to enable the fix with an explicit additional argument:
+    - `-emnormalize` in standalone, `FONT_SCALING_EM_NORMALIZED` in API for coordinates in ems
+    - `-noemnormalize` in standalone, `FONT_SCALING_NONE` in API for raw integer coordinates
+    - The default (backwards-compatible) behavior will change in a future version; a warning will be displayed if neither option is set
+- Added two new developer-friendly export image formats: RGBA and FL32
+- `-size` parameter renamed to `-dimensions` for clarity (old one will be kept for compatibility)
+- `generate*SDF` functions now combine projection and range into a single argument (`SDFTransformation`)
+- Conversion of floating point color values to 8-bit integers adjusted to match graphics hardware
+- Improved edge deconvergence procedure and made sure that calling `Shape::normalize` a second time has no effect
+- Fixed certain edge cases where Skia geometry preprocessing wouldn't make the geometry fully compliant
+- The term "perpendicular distance" now used instead of "pseudo-distance" (PSDF instead of PseudoSDF in API)
+- Fixed a bug in `savePng` where `fclose` could be called on null pointer
+- Minor code improvements
+
+## Version 1.11 (2023-11-11)
+
+- Reworked SVG parser, which now supports multiple paths and other shapes - requires Skia
+- Major performance improvements due to inlining certain low-level classes
+- A limited version of the standalone executable can now be built without any dependencies
+- Fixed `listFontVariationAxes` which previously reported incorrectly scaled values
+- Fixed potential crash when generating SDF from an empty `Shape`
+- Fixed a small bug in the error correction routine
+- Errors now reported to `stderr` rather than `stdout`
+- All command line arguments can now also be passed with two dashes instead of one
+- Added `-version` argument to print the program's version
+- `Shape` can now be loaded from a pointer to FreeType's `FT_Outline`
+- Added hidden CMake options to selectively disable PNG, SVG, or variable font support
+- Added CMake presets
+- Other minor bug fixes
+
+## Version 1.10 (2023-01-15)
+
+- Switched to vcpkg as the primary dependency management system
+- Switched to libpng as the primary PNG file encoder
+- Parameters of variable fonts can be specified
+- Fixed a bug that prevented glyph 0 to be specified in a glyphset
+
+### Version 1.9.2 (2021-12-01)
+
+- Improved detection of numerical errors in cubic equation solver
+- Added -windingpreprocess option
+- Fixed edge coloring not restored if lost during preprocessing
+
+### Version 1.9.1 (2021-07-09)
+
+- Fixed an edge case bug in the new MSDF error correction algorithm
+
 ## Version 1.9 (2021-05-28)
 
 - Error correction of multi-channel distance fields has been completely reworked
