@@ -3,15 +3,13 @@ include "Freetype"
 project "msdfgen"
     kind "StaticLib"
     language "C++"
-    cppdialect "C++11"
+    cppdialect "C++17"
     staticruntime "off"
-
-    architecture "x86_64"
 
     targetdir ("%{prj.location}/bin/" .. outputdir)
     objdir ("%{prj.location}/bin-int/" .. outputdir)
 
-    files 
+    files
     {
         -- msdf core
         "core/**.cpp",
@@ -21,38 +19,41 @@ project "msdfgen"
         -- msdf extensions
         "ext/**.cpp",
         "ext/**.h",
-
-        "lib/**.cpp",
     }
 
-    includedirs 
+    includedirs
     {
-        "include",
         "core",
         "ext",
-        "freetype/include/"        
+        "freetype/include"
     }
 
-    links 
+    links
     {
         "Freetype"
     }
 
-    defines  
+    defines
     {
-        "MSDFGEN_USE_CPP11"
-    }
-
-    disablewarnings 
-    {
-        4005,
-        4267
+        "MSDFGEN_USE_CPP11",
+        "MSDFGEN_PUBLIC=",
+        "MSDFGEN_EXT_PUBLIC="
     }
 
     filter "system:windows"
-    systemversion "latest"
+        architecture "x86_64"
+        systemversion "latest"
 
-    filter "configurations:Debug"        
+        disablewarnings
+        {
+            4005,
+            4267
+        }
+
+    filter "system:macosx"
+		architecture "ARM64"
+
+    filter "configurations:Debug"
         runtime "Debug"
         symbols "on"
 
